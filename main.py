@@ -1,4 +1,5 @@
 import time
+import requests_html
 from bs4 import BeautifulSoup as bs
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -38,6 +39,8 @@ for element in buttons:
         element.click()
 time.sleep(1.5)
 thisWeek = bs(driver.page_source, "html.parser")
+test = driver.find_elements(By.CLASS_NAME, "un-timetable__dnd-avatar un-timetable__dnd-avatar--hidden")
+print(test)
 # time.sleep(5.0)
 # buttons = driver.find_elements(By.CSS_SELECTOR, "button[type=button]")
 # for element in buttons:
@@ -48,4 +51,4 @@ time.sleep(6.0)
 
 ###############################################################################################################################
 
-#print(thisWeek.prettify())
+print(thisWeek.prettify())
