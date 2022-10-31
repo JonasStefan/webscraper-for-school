@@ -20,11 +20,9 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 driver.get(url)
 time.sleep(1.0)
 
-###############################################################################################################################
-
 schoolParent = driver.find_element(By.CLASS_NAME, "Select-input")
 schoolInput = schoolParent.find_elements(By.XPATH, "*")[0]
-schoolInput.send_keys("HTBLA Mössingerstr.")
+schoolInput.send_keys("<school>")
 time.sleep(1.0)
 schoolInput.send_keys(Keys.RETURN)
 time.sleep(0.8)
@@ -32,9 +30,9 @@ time.sleep(0.8)
 userInputs = driver.find_elements(By.CLASS_NAME, "un-input-group__input")
 for element in userInputs:
     if element.get_attribute("type") == "text":
-        element.send_keys("22651649")
+        element.send_keys("<username>")
     elif element.get_attribute("type") == "password":
-        element.send_keys("htlMeinzh3f!")
+        element.send_keys("<password>")
         element.send_keys(Keys.RETURN)
 time.sleep(1.0)
 
